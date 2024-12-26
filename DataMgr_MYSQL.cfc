@@ -194,7 +194,7 @@
 	</cfif>
 
 	<cfswitch expression="#arguments.type#">
-		<cfcase value="bigint"><cfset result = "CF_SQL_BIGINT"></cfcase>
+		<cfcase value="bigint,bigint unsigned"><cfset result = "CF_SQL_BIGINT"></cfcase> <!--- Add "bigint unsigned" to ensure no errors 12/26/24 --->
 		<cfcase value="binary,image,sql_variant,sysname,varbinary"><cfset result = ""></cfcase>
 		<cfcase value="bit"><cfset result = "CF_SQL_BIT"></cfcase>
 		<cfcase value="blob"><cfset result = "CF_SQL_BLOB"></cfcase>
@@ -203,8 +203,8 @@
 		<cfcase value="decimal"><cfset result = "CF_SQL_DECIMAL"></cfcase>
 		<cfcase value="double"><cfset result = "CF_SQL_DOUBLE"></cfcase>
 		<cfcase value="float"><cfset result = "CF_SQL_FLOAT"></cfcase>
-		<cfcase value="int"><cfset result = "CF_SQL_INTEGER"></cfcase>
-		<cfcase value="mediumint"><cfset result = "CF_SQL_INTEGER"></cfcase>
+		<cfcase value="int,int unsigned"><cfset result = "CF_SQL_INTEGER"></cfcase> <!--- Add "int unsigned" to ensure no errors 12/26/24 --->
+		<cfcase value="mediumint,mediumint unsigned"><cfset result = "CF_SQL_INTEGER"></cfcase> <!--- Add "mediumint unsigned" to ensure no errors 12/26/24 --->
 		<cfcase value="mediumtext"><cfset result = "CF_SQL_LONGVARCHAR"></cfcase>
 		<cfcase value="money"><cfset result = "CF_SQL_MONEY"></cfcase>
 		<cfcase value="nchar"><cfset result = "CF_SQL_CHAR"></cfcase>
@@ -213,12 +213,12 @@
 		<cfcase value="nvarchar"><cfset result = "CF_SQL_VARCHAR"></cfcase>
 		<cfcase value="real"><cfset result = "CF_SQL_REAL"></cfcase>
 		<cfcase value="smalldatetime"><cfset result = "CF_SQL_DATE"></cfcase>
-		<cfcase value="smallint"><cfset result = "CF_SQL_SMALLINT"></cfcase>
+		<cfcase value="smallint,smallint unsigned"><cfset result = "CF_SQL_SMALLINT"></cfcase> <!--- Add "smallint unsigned" to ensure no errors 12/26/24 --->
 		<cfcase value="smallmoney"><cfset result = "CF_SQL_MONEY4"></cfcase>
 		<cfcase value="text"><cfset result = "CF_SQL_LONGVARCHAR"></cfcase>
 		<cfcase value="longtext"><cfset result = "CF_SQL_LONGVARCHAR"></cfcase>
 		<cfcase value="timestamp"><cfset result = "CF_SQL_TIMESTAMP"></cfcase>
-		<cfcase value="tinyint"><cfset result = "CF_SQL_BIT"></cfcase>
+		<cfcase value="tinyint,tinyint unsigned"><cfset result = "CF_SQL_BIT"></cfcase> <!--- Add "tinyint unsigned" to ensure no errors 12/26/24 --->
 		<cfcase value="uniqueidentifier"><cfset result = "CF_SQL_IDSTAMP"></cfcase>
 		<cfcase value="varchar"><cfset result = "CF_SQL_VARCHAR"></cfcase>
 		<cfdefaultcase><cfset result = "UNKNOWN"></cfdefaultcase>
