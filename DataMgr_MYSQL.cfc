@@ -216,12 +216,12 @@
 		<cfcase value="smallint,smallint unsigned"><cfset result = "CF_SQL_SMALLINT"></cfcase> <!--- Add "smallint unsigned" to ensure no errors 12/26/24 --->
 		<cfcase value="smallmoney"><cfset result = "CF_SQL_MONEY4"></cfcase>
 		<cfcase value="text"><cfset result = "CF_SQL_LONGVARCHAR"></cfcase>
-		<cfcase value="longtext"><cfset result = "CF_SQL_LONGVARCHAR"></cfcase>
+		<cfcase value="longtext,json"><cfset result = "CF_SQL_LONGVARCHAR"></cfcase><!--- Add json as a type --->
 		<cfcase value="timestamp"><cfset result = "CF_SQL_TIMESTAMP"></cfcase>
-		<cfcase value="tinyint,tinyint unsigned"><cfset result = "CF_SQL_BIT"></cfcase> <!--- Add "tinyint unsigned" to ensure no errors 12/26/24 --->
+		<cfcase value="tinyint,tinyint unsigned"><cfset result = "CF_SQL_SMALLINT"></cfcase> <!--- Add "tinyint unsigned" to ensure no errors; changed from CF_SQL_BIT which results in a 0/1 value 12/26/24 --->
 		<cfcase value="uniqueidentifier"><cfset result = "CF_SQL_IDSTAMP"></cfcase>
 		<cfcase value="varchar"><cfset result = "CF_SQL_VARCHAR"></cfcase>
-		<cfdefaultcase><cfset result = "UNKNOWN"></cfdefaultcase>
+		<cfdefaultcase><cfset result = "UNKNOWN (#arguments.type#)"></cfdefaultcase>
 	</cfswitch>
 
 	<cfreturn result>
